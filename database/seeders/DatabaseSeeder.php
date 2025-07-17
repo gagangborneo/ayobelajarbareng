@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,10 +15,19 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
+        // buat role admin dan creator
+        \Spatie\Permission\Models\Role::create(['name' => 'admin']);
+        \Spatie\Permission\Models\Role::create(['name' => 'usatidz']);
+        \Spatie\Permission\Models\Role::create(['name' => 'creator']);
+
+        $user = User::factory()->create([
             'name' => 'Test User',
-            'email' => 'test@example.com',
+            'email' => 'qweqwe@mail.com',
+            'phone_number' => '08125144744',
+            'password' => Hash::make('qweqwe'),
         ]);
+        $user->assignRole('admin', 'usatidz');
+
 
         $this->call(CategorySeeder::class);
         $this->call(PostSeeder::class);
