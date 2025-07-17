@@ -28,7 +28,18 @@ Route::middleware('splade')->group(function () {
     Route::spladeUploads();
 
     Route::get('/', function () {
-        return view('welcome');
+        return view('pages.home');
+    });
+
+    Route::get('/chat-ustad/', function () {
+        return view('pages.chat-ustad.index');
+    });
+    Route::get('/chat-ustad/konfirmasi', function () {
+        return view('pages.chat-ustad.konfirmasi');
+    });
+
+    Route::get('/chat-ustad/selesai', function () {
+        return view('pages.chat-ustad.selesai');
     });
 
     Route::middleware('auth')->group(function () {
