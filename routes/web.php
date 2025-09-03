@@ -27,9 +27,17 @@ Route::middleware('splade')->group(function () {
     // Registers routes to support async File Uploads with Filepond...
     Route::spladeUploads();
 
-    Route::get('/', function () {
-        return view('pages.home');
-    });
+    // Route::get('/', function () {
+    //     return view('pages.landing-page')->name('home');
+    // });
+
+    // CHAT
+    Route::get('/', [\App\Http\Controllers\Web\LandingPageController::class, 'index'])->name('home');
+
+    Route::get('/artikel', [\App\Http\Controllers\Artikel\ListController::class, 'index'])->name('artikel.index');
+
+    Route::get('/chat', [\App\Http\Controllers\Chat\ListController::class, 'index'])->name('chat.index');
+    Route::get('/chat/message', [\App\Http\Controllers\Chat\MessageController::class, 'index'])->name('chat.message');
 
     Route::get('/chat-ustad/', function () {
         return view('pages.chat-ustad.index');

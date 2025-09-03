@@ -1,5 +1,5 @@
 {
-    "$schema": "https://getcomposer.org/schema.json",
+    "schema": "https://getcomposer.org/schema.json",
     "name": "ayobelajarbareng/ayobelajarbareng",
     "type": "project",
     "description": "Startup Islami Blog And Pivate Chat",
@@ -7,9 +7,11 @@
     "require": {
         "php": "^8.2",
         "codeat3/blade-carbon-icons": "^2.34",
+        "codeat3/blade-fluentui-system-icons": "^1.34",
         "gagangborneo/laravel-splade-breeze": "dev-1.x-splade",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
+        "protonemedia/laravel-splade": "^1.4",
         "spatie/laravel-permission": "^6.19"
     },
     "require-dev": {
